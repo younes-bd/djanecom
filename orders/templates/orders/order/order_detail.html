@@ -1,0 +1,15 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<div class='container'>
+  <h1>Order #{{object.order_id}}</h1>
+  <div class='row'>
+    <div class='col'>
+    <p> Cart items: </p>
+      <ul>
+        {% for product in object.cart.products.all %} <li>{{product}}</li> {% endfor %}
+      </ul>
+      <p>Order total: {{object.get_total_cost}}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
